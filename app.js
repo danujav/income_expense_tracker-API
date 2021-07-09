@@ -17,6 +17,9 @@ app.use(express.json())
 const income = require('./routes/income')
 app.use('/income', income)
 
+const expense = require('./routes/expense')
+app.use('/expense', expense)
+
 app.listen(9000, ()=>{
     console.log('Server started..!')
 })
