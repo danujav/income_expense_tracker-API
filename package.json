@@ -1,0 +1,16 @@
+{
+  "name": "expenseapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "nodemon app.js"
+  },
+  "author": "danu",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^3.6.10",
+    "mongoose": "^5.13.2"
+  }
+}
