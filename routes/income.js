@@ -40,5 +40,32 @@ router.get('/:id', async(req, res)=>{
     }
 })
 
+router.put('/:id', async(req, res)=>{
+    try {
+        const income = await Income.findById(req.params.id)
+        income.user = req.body.user
+        income.date = req.body.date
+        income.amount = req.body.amount
+        income.note = req.body.note
+        income.catagory = req.body.catagory
+        income.type = req.body.type
+        const i1 = await income.save()
+        res.json(i1)
+
+    }catch(err) {
+        res.send('Error' + err)
+    }
+})
+
+router.delete('/:id', async(req, res)=>{
+    try {
+        const income = await Income.findById(req.params.id)
+        const i1 = await income.remove()
+        res.json(i1)
+
+    }catch(err) {
+        res.send('Error' + err)
+    }
+})
 
 module.exports = router 
