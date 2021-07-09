@@ -20,6 +20,9 @@ app.use('/income', income)
 const expense = require('./routes/expense')
 app.use('/expense', expense)
 
+const user = require('./routes/user')
+app.use('/user', user)
+
 app.listen(9000, ()=>{
     console.log('Server started..!')
 })
