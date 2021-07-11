@@ -14,12 +14,10 @@ router.get('/', async(req, res)=>{
 
 router.post('/', async(req, res)=>{
    const income = new Income({
-        user: req.body.user,
-        date: req.body.date,
+        dates: req.body.dates,
         amount: req.body.amount, 
         note: req.body.note,
-        catagory: req.body.catagory,
-        type: req.body.type
+        catagory: req.body.catagory
    })
 
    try {
@@ -43,12 +41,10 @@ router.get('/:id', async(req, res)=>{
 router.put('/:id', async(req, res)=>{
     try {
         const income = await Income.findById(req.params.id)
-        income.user = req.body.user
-        income.date = req.body.date
+        income.dates = req.body.dates
         income.amount = req.body.amount
         income.note = req.body.note
         income.catagory = req.body.catagory
-        income.type = req.body.type
         const i1 = await income.save()
         res.json(i1)
 

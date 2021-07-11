@@ -1,11 +1,7 @@
 const mongoose = require('mongoose')
 
 const incomeSchema = new mongoose.Schema({
-    user: {
-        type: String,
-        ref: "User"
-    },
-    date: {
+    dates: {
         type: Date,
         required: true,
         default: Date.now
@@ -21,10 +17,6 @@ const incomeSchema = new mongoose.Schema({
     catagory: {
         type: String,
         required: true
-    },
-    type:{
-        type:String,
-        default:"Income"
     }
 })
 

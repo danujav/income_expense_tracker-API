@@ -14,12 +14,10 @@ router.get('/', async(req, res)=>{
 
 router.post('/', async(req, res)=>{
    const expense = new Expense({
-        user: req.body.user,
         date: req.body.date,
         amount: req.body.amount, 
         note: req.body.note,
-        catagory: req.body.catagory,
-        type: req.body.type
+        catagory: req.body.catagory
    })
 
    try {
@@ -43,12 +41,10 @@ router.get('/:id', async(req, res)=>{
 router.put('/:id', async(req, res)=>{
     try {
         const expense = await Expense.findById(req.params.id)
-        expense.user = req.body.user
         expense.date = req.body.date
         expense.amount = req.body.amount
         expense.note = req.body.note
         expense.catagory = req.body.catagory
-        expense.type = req.body.type
         const e1 = await expense.save()
         res.json(e1)
 
